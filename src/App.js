@@ -1,9 +1,12 @@
 import React from 'react'
+import { QuoteGenerator } from './components/QuoteGenerator'
 
 const App = () => {
   return (
-    <div></div>
+    <div className=''>
+      <QuoteGenerator />
+    </div>
   )
 }
 
-export default App
+export default App;
