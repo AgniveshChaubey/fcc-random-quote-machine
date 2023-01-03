@@ -24,11 +24,11 @@ export const QuoteGenerator = () => {
 
   const handleClick = () => {
     let randomIndex = Math.floor(Math.random() * quotes.length);
+    setRandomQuote(quotes[randomIndex]);
     // var randomColor = '#'+Math.floor(Math.random()*16777215).toString(16);
     // setColor(randomColor);
     let colorIndex = Math.floor(Math.random() * colors.length);
     setColor(colors[colorIndex]);
-    setRandomQuote(quotes[randomIndex]);
   }
 
   console.log(quotes)
