@@ -1,4 +1,8 @@
 import React, { useEffect, useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faQuoteLeft } from '@fortawesome/free-solid-svg-icons';
+
 export const QuoteGenerator = () => {
 
   const [quotes, setQuotes] = useState([]);
@@ -15,33 +19,44 @@ export const QuoteGenerator = () => {
     }
     fetchData();
   }, [])
+
+  const handleClick = ()=>{
+    
+  }
+
   console.log(quotes)
 
   return (
-    <div id="quote-box" className='container bg-white mt-5'>
+    <>
+    <div id="quote-box" className='container bg-white mt-5 p-5 rounded'>
       <div className="row">
-        <div id="text" className='col col-sm-12 pl-5 pr-5 pt-5 pb-2'>{
+        <div id="text" className='col col-sm-12 pb-3'>{
           randomQuote ? (
-            <h3> <i className='fa-solid fa-quote-left'></i>{randomQuote.text}</h3>
+            <h3 className='text-center'><FontAwesomeIcon icon={faQuoteLeft} /> {randomQuote.text}</h3>
           ) : (
             <h2>Loading...</h2>
           )}
         </div>
-      </div>
+      </div> 
       <div className="row">
         <div className="col"></div>
-        <div id="author" className='col col-md-4'>
+        <div id="author" className='col col-md-3'>
           {randomQuote ? (
-            <h3>{`-${randomQuote.author}`}</h3>
+            <p>{`-${randomQuote.author}`}</p>
           ) : (
             <h3>...</h3>
           )}
         </div>
       </div>
       <div className="row">
-        <button id="new-quote" className=''>New quote</button>
-        <a href="twitter.com/intent/tweet" id="tweet-quote"></a>
+        <div className="col">
+          <a href="twitter.com/intent/tweet" id="tweet-quote"><FontAwesomeIcon icon={faTwitter} /></a>
+        </div>
+        <div className="col-md-3 text-left">
+          <button id="new-quote" className='' onClick={handleClick}>New quote</button>
+        </div>
       </div>
-    </div>
+    </div> <p className='text-center mt-4'>by Agnivesh</p>
+    </>
   )
 }
