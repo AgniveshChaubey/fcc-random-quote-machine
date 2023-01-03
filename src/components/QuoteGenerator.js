@@ -15,7 +15,7 @@ export const QuoteGenerator = () => {
       const webResponse = await fetch("https://type.fit/api/quotes");
       const quotesList = await webResponse.json();
 
-      setQuotes(randomQuote);
+      setQuotes(quotesList);
       let randomIndex = Math.floor(Math.random() * quotesList.length);
       setRandomQuote(quotesList[randomIndex]);
     }
@@ -31,7 +31,7 @@ export const QuoteGenerator = () => {
     setColor(colors[colorIndex]);
   }
 
-  console.log(quotes)
+  // console.log(quotes)
 
   return (
     <>
@@ -64,7 +64,7 @@ export const QuoteGenerator = () => {
                 href='twitter.com/intent/tweet'
                 id="tweet-quote"><FontAwesomeIcon icon={faTwitter} /></a>
             </div>
-            <div className="col-md-3 text-left">
+            <div className="col-md-3 col-sm-3 text-left">
               <button id="new-quote" className='p-2 rounded' style={{ backgroundColor: color, color: 'white' }} onClick={handleClick}>New quote</button>
             </div>
           </div>
